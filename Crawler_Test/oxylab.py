@@ -12,8 +12,13 @@ driver = webdriver.Chrome('chromedriver')
 driver.maximize_window()
 driver.get('https://oxylabs.io/products/real-time-crawler')
 
+<<<<<<< HEAD
+username = driver.find_element_by_name("keyword")
+username.send_keys('Sagar Ambilpure')
+=======
 keyword = driver.find_element_by_name("keyword")
 keyword.send_keys('Maharashtra Bandh')
+>>>>>>> db9e50a40d69a4e58245c109b9ff6f5156cb20db
 sleep(0.5)
 
 # password = driver.find_element_by_name('session_password')
@@ -22,10 +27,20 @@ sleep(0.5)
 
 # sign_in_button = driver.find_element_by_class_name('button is-primary is-vcentered')
 # sign_in_button.click()
+<<<<<<< HEAD
+username.submit()
+
+content=""
+while len(content)<25:
+    content = driver.find_element_by_tag_name("pre").text
+
+print("/n/n/n/n/n/n",content,"/n/n/n/n/n/n/n")
+=======
 keyword.submit()
 sleep(10)
 text = driver.find_element_by_tag_name("pre")
 print("/n/n/n/n/n/n",text.text,"/n/n/n/n/n/n/n")
+>>>>>>> db9e50a40d69a4e58245c109b9ff6f5156cb20db
 # driver.get('https://www.google.com/')
 # search_query = driver.find_element_by_name('q')
 # search_query.send_keys('site:linkedin.com/in AND "python developer" AND "london"')
@@ -66,12 +81,17 @@ print("/n/n/n/n/n/n",text.text,"/n/n/n/n/n/n/n")
 #     print('Location: ', location)
 #     print('URL: ', url)
 #     print('\n')
-          
+
 #     writer.writerow([name,
 #                  position,
 #                  company,
 #                  education,
 #                  location,
 #                  url])
+<<<<<<< HEAD
+
+# driver.quit()
+=======
           
 driver.quit()
+>>>>>>> db9e50a40d69a4e58245c109b9ff6f5156cb20db
