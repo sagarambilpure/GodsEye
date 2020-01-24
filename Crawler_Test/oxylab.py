@@ -48,12 +48,14 @@ url.remove(z)
 # print('XXXXXXXXXXXXXXXXXXXXXXXXXXX')
 
 #Removing Social Sites
-urlNoSocial=url
-social=['facebook', 'twitter','linkedin']
-for e in urlNoSocial:
+urlNoSocial=[]
+social=['facebook', 'twitter','linkedin','youtube','google','Youtube']
+for e in url:
     for s in social:
         if s in e:
-            urlNoSocial.remove(e)
+            break
+    else:
+        urlNoSocial.append(e)
         
 for i in urlNoSocial:
     print(i)
