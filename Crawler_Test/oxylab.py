@@ -4,16 +4,16 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-writer = csv.writer(open('output.csv', 'w+', encoding='utf-8-sig', newline=''))
-writer.writerow(['Name', 'Position', 'Company', 'Education', 'Location', 'URL'])
+# writer = csv.writer(open('output.csv', 'w+', encoding='utf-8-sig', newline=''))
+# writer.writerow(['Name', 'Position', 'Company', 'Education', 'Location', 'URL'])
 
 
 driver = webdriver.Chrome('chromedriver')
 driver.maximize_window()
 driver.get('https://oxylabs.io/products/real-time-crawler')
 
-username = driver.find_element_by_name("keyword")
-username.send_keys('Maharashtra Bandh')
+keyword = driver.find_element_by_name("keyword")
+keyword.send_keys('Maharashtra Bandh')
 sleep(0.5)
 
 # password = driver.find_element_by_name('session_password')
@@ -22,8 +22,8 @@ sleep(0.5)
 
 # sign_in_button = driver.find_element_by_class_name('button is-primary is-vcentered')
 # sign_in_button.click()
-username.submit()
-sleep(15)
+keyword.submit()
+sleep(10)
 text = driver.find_element_by_tag_name("pre")
 print("/n/n/n/n/n/n",text.text,"/n/n/n/n/n/n/n")
 # driver.get('https://www.google.com/')
@@ -74,4 +74,4 @@ print("/n/n/n/n/n/n",text.text,"/n/n/n/n/n/n/n")
 #                  location,
 #                  url])
           
-# driver.quit()
+driver.quit()
