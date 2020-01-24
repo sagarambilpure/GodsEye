@@ -13,7 +13,7 @@ driver.maximize_window()
 driver.get('https://oxylabs.io/products/real-time-crawler')
 
 keyword = driver.find_element_by_name("keyword")
-keyword.send_keys('Maharashtra Bandh')
+keyword.send_keys('Uzair Chhapra')
 sleep(0.5)
 
 # password = driver.find_element_by_name('session_password')
