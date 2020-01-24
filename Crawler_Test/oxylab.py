@@ -49,7 +49,7 @@ url.remove(z)
 
 #Removing Social Sites
 urlNoSocial=url
-social=['facebook', 'twitter']
+social=['facebook', 'twitter','linkedin']
 for e in urlNoSocial:
     for s in social:
         if s in e:
