@@ -13,7 +13,7 @@ driver.maximize_window()
 driver.get('https://oxylabs.io/products/real-time-crawler')
 
 username = driver.find_element_by_name("keyword")
-username.send_keys('Maharashtra Bandh')
+username.send_keys('Sagar Ambilpure')
 sleep(0.5)
 
 # password = driver.find_element_by_name('session_password')
@@ -23,9 +23,12 @@ sleep(0.5)
 # sign_in_button = driver.find_element_by_class_name('button is-primary is-vcentered')
 # sign_in_button.click()
 username.submit()
-sleep(15)
-text = driver.find_element_by_tag_name("pre")
-print("/n/n/n/n/n/n",text.text,"/n/n/n/n/n/n/n")
+
+content=""
+while len(content)<25:
+    content = driver.find_element_by_tag_name("pre").text
+
+print("/n/n/n/n/n/n",content,"/n/n/n/n/n/n/n")
 # driver.get('https://www.google.com/')
 # search_query = driver.find_element_by_name('q')
 # search_query.send_keys('site:linkedin.com/in AND "python developer" AND "london"')
@@ -66,12 +69,12 @@ print("/n/n/n/n/n/n",text.text,"/n/n/n/n/n/n/n")
 #     print('Location: ', location)
 #     print('URL: ', url)
 #     print('\n')
-          
+
 #     writer.writerow([name,
 #                  position,
 #                  company,
 #                  education,
 #                  location,
 #                  url])
-          
+
 # driver.quit()
