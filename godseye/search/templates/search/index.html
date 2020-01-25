@@ -34,20 +34,20 @@
             <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
           </div>
           <div class="col-sm-6 form-group">
-            <input class="form-control" id="phone" name="phone" placeholder="Phone" type="number" required>
+            <input class="form-control" id="phone" name="phone" placeholder="Phone" type="number">
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-6 form-group">
-            <input class="form-control" id="aadhar" name="aadhar" placeholder="Aadhar Number" type="text" required>
+          <div class="col-sm-12 form-group">
+            <input class="form-control" id="aadhar" name="aadhar" placeholder="Aadhar Number" type="text">
           </div>
-          <div class="col-sm-6 form-group">
+          <!-- <div class="col-sm-6 form-group">
             <select class="required form-control" id="social" name="social">
               <option value=""disabled>Do you want to include Social Media?</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
-          </div>
+          </div> -->
         </div>
         <div class="row">
           <div class="col-sm-12 form-group">
@@ -66,45 +66,45 @@
   </footer>
 
   <script>
-    $(document).ready(function() {
-          // Add smooth scrolling to all links in navbar + footer link
-          $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-            // Make sure this.hash has a value before overriding default behavior
-            if (this.hash !== "") {
-              // Prevent default anchor click behavior
-              event.preventDefault();
+    $(document).ready(function () {
+      // Add smooth scrolling to all links in navbar + footer link
+      $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
 
-              // Store hash
-              var hash = this.hash;
+          // Store hash
+          var hash = this.hash;
 
-              // Using jQuery's animate() method to add smooth page scroll
-              // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-              $('html, body').animate({
-                scrollTop: $(hash).offset().top
-              }, 900, function() {
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 900, function () {
 
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-              });
-            } // End if
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
           });
+        } // End if
+      });
 
           <<
           << << < HEAD
-          $(window).scroll(function() {
-                $(".slideanim").each(function() {
-                      var pos = $(this).offset().top; ===
+          $(window).scroll(function () {
+            $(".slideanim").each(function () {
+              var pos = $(this).offset().top; ===
                       === =
-                      <!-- Image of location/map -->
-                      <!-- <img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%"> -->
+                      < !--Image of location / map-- >
+                      < !-- < img src = "/w3images/map.jpg" class="w3-image w3-greyscale-min" style = "width:100%" > -->
 
-                      <
-                      footer class = "container-fluid text-center" >
-                        <
-                        a href = "#myPage"
-                      title = "To Top" >
-                        <
-                        span class = "glyphicon glyphicon-chevron-up" > < /span> <
+                <
+                      footer class="container-fluid text-center" >
+                  <
+                        a href="#myPage"
+                    title="To Top" >
+                    <
+                        span class="glyphicon glyphicon-chevron-up" > < /span> <
                         /a>
                         <!-- <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a></p> -->
                         <
@@ -114,7 +114,7 @@
                         script >
                         $(document).ready(function() {
                           // Add smooth scrolling to all links in navbar + footer link
-                          $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+                          $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
                             // Make sure this.hash has a value before overriding default behavior
                             if (this.hash !== "") {
                               // Prevent default anchor click behavior
@@ -127,7 +127,7 @@
                               // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
                               $('html, body').animate({
                                 scrollTop: $(hash).offset().top
-                              }, 900, function() {
+                              }, 900, function () {
 
                                 // Add hash (#) to URL when done scrolling (default click behavior)
                                 window.location.hash = hash;
@@ -136,17 +136,17 @@
                           });
 
                           $(window).scroll(function() {
-                            $(".slideanim").each(function() {
-                              var pos = $(this).offset().top; >>>
+                          $(".slideanim").each(function () {
+                            var pos = $(this).offset().top; >>>
                               >>> > e046809a21171fa0c6a227e6c4f6336dad31cab8
 
-                              var winTop = $(window).scrollTop();
-                              if (pos < winTop + 600) {
-                                $(this).addClass("slide");
-                              }
-                            });
+                            var winTop = $(window).scrollTop();
+                            if (pos < winTop + 600) {
+                              $(this).addClass("slide");
+                            }
                           });
-                        })
+                });
+              })
   </script>
 </body>
 
