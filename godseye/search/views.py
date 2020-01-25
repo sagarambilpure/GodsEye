@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 import csv
 from parsel import Selector
 from time import sleep
 from selenium import webdriver
+from django.core.files.storage import FileSystemStorage
+import requests, json
 from selenium.webdriver.common.keys import Keys
 
 # Create your views here.
@@ -12,6 +15,24 @@ def index(request):
         return render(request, 'search/index.html',{'data':'wow'})
     else:
         return render(request, 'search/index.html')
+
+def imgfind(request):
+    return render(request, 'search/searchimage.html')
+
+def searchimage(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        print('hi')
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        print('\n\n',uploaded_file_url,'\n\n')
+        BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
+        SUBSCRIPTION_KEY = '5627bd40a3ab44e197a2702915ef9feb'
+        imagePath = '/Users/adityachavan/Downloads/29c20948-bacc-40df-84f0-102319203b53.JPG'
+        # print(imagepath)
+        return render(request, 'search/index.html')
+
 
 def search(key):
     driver = webdriver.Chrome('chromedriver')

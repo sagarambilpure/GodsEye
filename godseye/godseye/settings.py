@@ -25,7 +25,7 @@ SECRET_KEY = 'gb__ylv4bd9as)6a@m8clrs!@!m^keninrbv8aj*2ep*8ymekx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -75,12 +75,19 @@ WSGI_APPLICATION = 'godseye.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'u708089898_godseye',
+        'USER': 'u708089898_search',
+        'PASSWORD': 'godseye@10104',
+        'HOST': 'sql170.main-hosting.eu',
+        'PORT': '' ,
+
     }
 }
 
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
+MEDIA_URL = '/media/'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
