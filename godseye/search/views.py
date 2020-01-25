@@ -27,6 +27,7 @@ def imgfind(request):
 def searchimage(request):
     if request.method == 'POST' and request.FILES['myfile']:
         print('hi')
+        social = request.POST['social']
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
@@ -52,8 +53,10 @@ def searchimage(request):
         print(imageUrlList)
         urlNoSocial = imageUrlList
     #     social=['facebook', 'twitter','linkedin']
-        social_links = ['youtube', 'facebook',
-                        'linkedin', 'twitter', 'google', 'instagram']
+        if social == 'No':
+            social_links = ['youtube', 'facebook', 'linkedin', 'twitter', 'google', 'instagram']
+        else:
+            social_links = []
         new_links = []
     #     print(url)
         for link in imageUrlList:
@@ -62,11 +65,12 @@ def searchimage(request):
                     break
             else:
                 new_links.append(link)
+        x = imagePath.split('/')[-1]
 
-        return render(request, 'search/imageresult.html', {'search': new_links, 'name': imagePath})
+        return render(request, 'search/imageresult.html', {'search': new_links, 'name': x})
 
 
-def search(key):
+def search(key, social):
     driver = webdriver.Chrome('chromedriver')
     driver.maximize_window()
     driver.get('https://oxylabs.io/products/real-time-crawler')
@@ -111,8 +115,10 @@ def search(key):
     # Removing Social Sites
     urlNoSocial = url
 #     social=['facebook', 'twitter','linkedin']
-    social_links = ['youtube', 'facebook',
-                    'linkedin', 'twitter', 'google', 'instagram']
+    if social == 'No':
+        social_links = ['youtube', 'facebook', 'linkedin', 'twitter', 'google', 'instagram']
+    else:
+        social_links = []
     new_links = []
 #     print(url)
     for link in url:
@@ -130,7 +136,8 @@ def find(request):
     email = request.POST['email']
     phone = request.POST['phone']
     aadhar = request.POST['aadhar']
-    l = search(aadhar) + search(email) + \
-        search(firstname + ' ' + lastname) + search(phone)
+    social = request.POST['social']
+    l = search(aadhar, social) + search(email, social) + \
+        search(firstname + ' ' + lastname, social) + search(phone, social)
 
     return render(request, 'search/searchresult.html', {'search': l, 'name': firstname + ' ' + lastname})
