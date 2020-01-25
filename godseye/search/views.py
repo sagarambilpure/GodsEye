@@ -27,6 +27,7 @@ def imgfind(request):
 def searchimage(request):
     if request.method == 'POST' and request.FILES['myfile']:
         print('hi')
+        social = request.POST['social']
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
@@ -52,8 +53,10 @@ def searchimage(request):
         print(imageUrlList)
         urlNoSocial = imageUrlList
     #     social=['facebook', 'twitter','linkedin']
-        social_links = ['youtube', 'facebook',
-                        'linkedin', 'twitter', 'google', 'instagram']
+        if social == 'No':
+            social_links = ['youtube', 'facebook', 'linkedin', 'twitter', 'google', 'instagram']
+        else:
+            social_links = []
         new_links = []
     #     print(url)
         for link in imageUrlList:
@@ -62,8 +65,9 @@ def searchimage(request):
                     break
             else:
                 new_links.append(link)
+        x = imagePath.split('/')[-1]
 
-        return render(request, 'search/imageresult.html', {'search': new_links, 'name': imagePath})
+        return render(request, 'search/imageresult.html', {'search': new_links, 'name': x})
 
 
 def search(key):
