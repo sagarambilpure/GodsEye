@@ -112,7 +112,7 @@ def search(key):
     urlNoSocial = url
 #     social=['facebook', 'twitter','linkedin']
     social_links = ['youtube', 'facebook',
-                    'linkedin', 'twitter', 'google', 'instagram']
+                    'linkedin', 'twitter', 'google', 'instagram', 'Youtube']
     new_links = []
 #     print(url)
     for link in url:
@@ -123,6 +123,11 @@ def search(key):
             new_links.append(link)
     return new_links
 
+def search_json(request):
+    keyword = request.GET['keyword']
+    result_list = search(keyword)
+    return HttpResponse(json.dumps(result_list), content_type='application/json')
+    
 
 def find(request):
     firstname = request.POST['firstname']
@@ -130,7 +135,7 @@ def find(request):
     email = request.POST['email']
     phone = request.POST['phone']
     aadhar = request.POST['aadhar']
-    l = search(aadhar) + search(email) + \
-        search(firstname + ' ' + lastname) + search(phone)
-
-    return render(request, 'search/searchresult.html', {'search': l, 'name': firstname + ' ' + lastname})
+    # l = search(aadhar) + search(email) + \
+    #     search(firstname + ' ' + lastname) + search(phone)
+    return render(request, 'search/searchresult.html', {'name': firstname + ' ' + lastname,'email':email,'phone':phone,'aadhar':aadhar})
+    # return render(request, 'search/searchresult.html', {'search': l, 'name': firstname + ' ' + lastname})

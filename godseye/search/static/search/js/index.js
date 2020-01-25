@@ -1,25 +1,29 @@
 $(document).ready(function () {
 
-    function get_search() {
-        var optionSelected = $(this).find("option:selected");
-        var state_name = optionSelected.text();
+    function get_search(variable) {
+        $.ajax('search_json', { method: 'GET', data: { 'keyword': variable } }).done(function (result) {
+            console.log(result);
+            for (var i = result.length - 1; i >= 0; i--) {
+                $("#url_list").append('<tr><td><a href="' + result[i] + '"> ' + result[i] + '</a></td><tr>');
+            };
 
-        console.log(state_name);
-        sname = { 'state': state_name };
-
-        $("#from_location option").remove();
-        $.ajax('/', { method: 'GET', data: sname }).done(function (result) {
-            // console.log(result);
-            // $("#from_city option").remove();
-            // for (var i = result.length - 1; i >= 0; i--) {
-            //     $("#from_city").append('<option>' + result[i].scity + '</option>');
-            // };
-
+            var size = parseInt(document.getElementById("count").value);
+            size = size - 1;
+            console.log(size);
+            if (size == 0) {
+                document.getElementById("loading").style.display = "none";
+            }
+            else {
+                document.getElementById("count").value = size;
+            }
         }).fail(function () {
-            // alert('Server down');
+            alert('Server down');
         });
     }
 
-    get_search();
+    get_search($("#email").text());
+    get_search($("#aadhar").text());
+    get_search($("#name").text());
+    get_search($("#phone").text());
 
 });
