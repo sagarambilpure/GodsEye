@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-import csv
+import csv,os
 from parsel import Selector
 from time import sleep
 from selenium import webdriver
@@ -36,7 +36,8 @@ def searchimage(request):
         BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
         SUBSCRIPTION_KEY = '5627bd40a3ab44e197a2702915ef9feb'
         HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
-        imagePath = '/Users/adityachavan/Documents/GitHub/GodsEye/godseye' + uploaded_file_url
+        # 'C://Users//SAGAR//Documents//GitHub//GodsEye//godseye'
+        imagePath = os.path.realpath("")  + uploaded_file_url
         file = {'image': ('myfile', open(imagePath, 'rb'))}
         # print(imagepath)
         response = requests.post(BASE_URI, headers=HEADERS, files=file)
