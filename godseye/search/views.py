@@ -34,9 +34,9 @@ def searchimage(request):
         uploaded_file_url = fs.url(filename)
         print('\n\n', uploaded_file_url, '\n\n')
         BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
-        SUBSCRIPTION_KEY = '5627bd40a3ab44e197a2702915ef9feb'
+        SUBSCRIPTION_KEY = ''
         HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
-        # 'C://Users//SAGAR//Documents//GitHub//GodsEye//godseye'
+        # 'C://Users////Documents//GitHub//GodsEye//godseye'
         imagePath = os.path.realpath("")  + uploaded_file_url
         file = {'image': ('myfile', open(imagePath, 'rb'))}
         # print(imagepath)
